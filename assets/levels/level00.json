@@ -1,0 +1,7 @@
+{
+    "platforms": [
+        {"image": "ground", "x": 0, "y": 940},
+        {"image": "ground", "x": 966, "y": 940}
+    ],
+    "hero": {"x": 21, "y": 920}
+}
