@@ -10,7 +10,7 @@ import {_loadLevel, _spawnPlatform, _spawnCharacters} from './utils/levelLoader'
 
 let PlayState = {};
 
-
+//#TODO i have to clean this up
 PlayState.preload = preload;
 PlayState.init = init;
 PlayState.create = create;
