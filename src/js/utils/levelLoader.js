@@ -61,5 +61,6 @@ export function _spawnDoor (door) {
     this.game.physics.enable(sprite);
     sprite.body.allowGravity = false;
     sprite.body.immovable = true;
+    sprite.body.setSize(100,100)
 
 }

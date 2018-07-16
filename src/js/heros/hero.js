@@ -10,6 +10,7 @@ export default class Hero extends Phaser.Sprite {
 
         this.game.physics.enable(this);
         this.body.collideWorldBounds = true;
+        this.body.setSize(280,455)
         this.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8, 9], 9, true);
         this.animations.add('run', [21, 22, 23, 24, 25, 26, 27, 28], 10, true);
         this.animations.add('jump', [11, 12, 13, 14, 15]);
