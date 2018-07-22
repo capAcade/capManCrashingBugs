@@ -10,6 +10,7 @@ import _colissionDetector from './utils/colisionDetector';
 
 
 let PlayState = {};
+PlayState.LEVEL_COUNT =2;
 
 //#TODO i have to clean this up
 PlayState.preload = preload;
@@ -27,5 +28,5 @@ PlayState._spawnDoor = _spawnDoor;
 window.onload = function () {
     let game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'game');
     game.state.add('play', PlayState);
-    game.state.start('play');
+    game.state.start('play', true, false, {level: 0});
 };

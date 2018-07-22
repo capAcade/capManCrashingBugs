@@ -8,10 +8,10 @@ export default function()  {
         this._onHeroVsDoor, null, this);
 
     this._onHeroVsEnemy = function (hero, enemy) {
-        this.game.state.restart();
+        this.game.state.restart(true, false, {level: this.level});
     };
 
     this._onHeroVsDoor = function (hero, enemy) {
-        this.game.state.restart();
+        this.game.state.restart(true, false, { level: this.level + 1 });
     };
 }
