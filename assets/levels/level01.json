@@ -35,6 +35,11 @@
         {"image": "spikes", "x": 456, "y": 950},
         {"image": "spikes", "x": 532, "y": 950}
     ],
+    "coins": [
+        {"image": "coin", "x": 610, "y": 450},
+        {"image": "coin", "x": 530, "y": 450},
+        {"image": "coin", "x": 570, "y": 400}
+    ],
     "doors": [
         {"image": "doorOpen", "x": 200, "y": 469}
     ],

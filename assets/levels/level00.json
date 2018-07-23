@@ -31,6 +31,11 @@
         
         {"image": "platformFull", "x": 1128, "y": 788}
     ],
+    "coins": [
+        {"image": "coin", "x": 630, "y": 450},
+        {"image": "coin", "x": 510, "y": 450},
+        {"image": "coin", "x": 570, "y": 400}
+    ],
     "traps": [
         {"image": "spikes", "x": 456, "y": 950},
         {"image": "spikes", "x": 532, "y": 950}

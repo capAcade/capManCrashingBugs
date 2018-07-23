@@ -5,7 +5,7 @@ import create from './states/create';
 import init from './states/init';
 import handleInput from './utils/inputHandler';
 import update from './states/update';
-import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnTrap, _spawnDoor} from './utils/levelLoader';
+import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnTrap, _spawnDoor, _spawnCoin} from './utils/levelLoader';
 import _colissionDetector from './utils/colisionDetector';
 
 
@@ -24,6 +24,7 @@ PlayState._handleInput = handleInput;
 PlayState._handleCollisions = _colissionDetector;
 PlayState._spawnTrap = _spawnTrap;
 PlayState._spawnDoor = _spawnDoor;
+PlayState._spawnCoin = _spawnCoin;
 
 window.onload = function () {
     let game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'game');

@@ -4,9 +4,11 @@ export function _loadLevel(data) {
     this.platforms = this.game.add.group();
     this.traps = this.game.add.group();
     this.doors = this.game.add.group();
+    this.coins = this.game.add.group();
     data.platforms.forEach(this._spawnPlatform, this);
     data.doors.forEach(this._spawnDoor, this);
     data.traps.forEach(this._spawnTrap, this);
+    data.coins.forEach(this._spawnCoin, this);
     this._spawnCharacters({hero: data.hero});
 
     const GRAVITY = 1200;
@@ -63,4 +65,14 @@ export function _spawnDoor (door) {
     sprite.body.immovable = true;
     sprite.body.setSize(100,100)
 
+}
+
+export function _spawnCoin (coin) {
+    let sprite = this.coins.create(coin.x, coin.y, 'coin');
+    sprite.scale.setTo(2, 2);
+    sprite.anchor.set(0.5, 0.5);
+    sprite.animations.add('rotate', [0, 1, 2, 3, 4, 5, 6, 7], 9, true); // 6fps, looped
+    sprite.animations.play('rotate');
+    this.game.physics.enable(sprite);
+    sprite.body.allowGravity = false;;
 }
