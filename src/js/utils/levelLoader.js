@@ -76,3 +76,22 @@ export function _spawnCoin (coin) {
     this.game.physics.enable(sprite);
     sprite.body.allowGravity = false;;
 }
+
+export function _createHud () {
+    this.keyIcon = this.game.make.image(0, 19, 'icon:key');
+    this.keyIcon.anchor.set(0, 0.5);
+    let coinIcon = this.game.make.image(this.keyIcon.width + 7, 0, 'icon:coin');
+    const NUMBERS_STR = '0123456789X ';
+    this.coinFont = this.game.add.retroFont('font:numbers', 20, 26,
+        NUMBERS_STR, 6);
+
+    let coinScoreImg = this.game.make.image(coinIcon.x + coinIcon.width,
+        coinIcon.height / 2, this.coinFont);
+    coinScoreImg.anchor.set(0, 0.5);
+
+    this.hud = this.game.add.group();
+    this.hud.add(coinIcon);
+    this.hud.position.set(10, 10);
+    this.hud.add(coinScoreImg);
+    this.hud.add(this.keyIcon);
+};

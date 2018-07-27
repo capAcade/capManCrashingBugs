@@ -1,5 +1,6 @@
 export default function(data)  {
     this.game.renderer.renderSession.roundPixels = true;
+    this.scorep1 = 0;
     this.keys = this.game.input.keyboard.addKeys({
         left: Phaser.KeyCode.LEFT,
         right: Phaser.KeyCode.RIGHT,

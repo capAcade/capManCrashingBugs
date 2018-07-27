@@ -19,6 +19,8 @@ export default function()  {
     };
 
     this._onHeroVsCoin = function (hero, coin) {
+        this.sfx.coin.play();
+        this.scorep1++;
         coin.kill();
     };
 }
