@@ -10,6 +10,12 @@ import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnTrap, _spawnDoor, _s
 import _colissionDetector from './utils/colisionDetector';
 
 
+
+/*
+Font in het logo onder capman is ' KenVector Future', regular weight, 32px
+Het font v.d. press start is hetzelfde font, ook 32px regular, letter-spacing 2px, border-color: #26D8D7
+*/
+
 let PlayState = {};
 PlayState.LEVEL_COUNT =2;
 
