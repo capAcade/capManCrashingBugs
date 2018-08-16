@@ -39,6 +39,8 @@ window.onload = function () {
     let gameMenu = new GameMenu(
         {
             title: 'capman Crashing bugs',
+            background: 'assets/img/test/Intro_Screen_background.png',
+            logo: 'assets/img/test/CapmanLogo1.svg',
             buttons: [
                 {
                     id: 'onePlayer',

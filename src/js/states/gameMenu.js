@@ -35,6 +35,8 @@ export default class GameMenu {
         this.cb = cb;
     }
     preload() {
+        this.game.load.image('bg', this.config.background);
+        this.game.load.image('logo', this.config.logo);
 
     }
     init() {
@@ -46,6 +48,11 @@ export default class GameMenu {
     }
     create() {
         this.game.stage.backgroundColor = '#000033';
+        var bg = this.game.add.image(0, 0, 'bg');
+        var logo = this.game.add.image(this.game.world.centerX, this.game.world.centerY -300, 'logo');
+        logo.anchor.set(0.5);
+        bg.height = this.game.height;
+        bg.width = this.game.width;
         var style = { font: "65px Arial", fill: "#ffffff", align: "center" };
         let offSet = 0;
 
