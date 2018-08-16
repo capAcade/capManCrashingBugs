@@ -1,5 +1,6 @@
 // Phaser is side loaded as global!
 //var preload = require('./states/preload');
+import GameMenu from './states/gameMenu';
 import preload from './states/preload';
 import create from './states/create';
 import init from './states/init';
@@ -29,6 +30,26 @@ PlayState._createHud = _createHud;
 
 window.onload = function () {
     let game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'game');
+    let gameMenu = new GameMenu(
+        {
+            title: 'capman Crashing bugs',
+            buttons: [
+                {
+                    id: 'onePlayer',
+                    text: 'play with one player'
+                },
+                {
+                    id: 'twoPlayers',
+                    text: 'play with two players'
+                }
+            ]
+        },
+        () =>{
+            game.state.start('play', true, false, {level: 0}); 
+        }
+    );
+
+    game.state.add('gameMenu', gameMenu);
     game.state.add('play', PlayState);
-    game.state.start('play', true, false, {level: 0});
+    game.state.start('gameMenu', true, false, {level: 0});
 };
