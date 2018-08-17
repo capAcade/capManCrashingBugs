@@ -1,30 +1,27 @@
-
-const setFocusButton = (context, indexLast, indexNew) =>{
-    console.log(indexLast, indexNew);
-    context._buttons[indexNew].addColor('#ffff00', 0);
-    context._buttons[indexLast].addColor('#ffffff', 0);
-}
+let timer = 0;
+const menuVelocity = 20;
+let blinkTimer = 0;
+let blinkVelocity = 30;
 
 const handleInput = (context) => {
-    let lastButton = context.selectedButton;
-    let timer;
-    context.selectedButton = (context.selectedButton || 0) % context._buttons.length;
-    if (context.keys.down.isDown) {
-        context.selectedButton = (context.selectedButton + 1) % context._buttons.length;
-        setFocusButton(context, lastButton, context.selectedButton)
-        console.log('key down')
-    }
-    else if (context.keys.up.isDown) {
-        context.selectedButton = (context.selectedButton - 1) % context._buttons.length;
-
+    
+    timer--;
+    if (context.keys.down.isDown && timer<=0) {
+        context.selectedButton = (context.selectedButton+1) % context._buttons.length;
+        timer=menuVelocity;
+    } else if (context.keys.up.isDown && timer<=0) {
+        context.selectedButton = (context.selectedButton-1) % context._buttons.length;
+        timer=menuVelocity;
+        //failsafe for negative numbers
         if(context.selectedButton < 0){
-            context.selectedButton = 0
-        };
-
-        setFocusButton(context, lastButton, context.selectedButton)
-        console.log('keyisup')
-    } 
+            context.selectedButton = context._buttons.length-1;
+        }
+    }
+    else if (context.keys.fire.isDown) {
+        context.cb(context.config.buttons[context.selectedButton]);
+    }  
     else {
+        //timer--;
         //console.log('keypressisstoped')
     }
  };
@@ -33,17 +30,23 @@ export default class GameMenu {
     constructor(config, cb) {
         this.config = config;
         this.cb = cb;
+        this.selectedButton = 0;
     }
     preload() {
-        this.game.load.image('bg', this.config.background);
-        this.game.load.image('logo', this.config.logo);
+        if(typeof this.config.background === 'string'){
+            this.game.load.image('bg', this.config.background);
+        }
+        if(typeof this.config.logo === 'string'){
+            this.game.load.image('logo', this.config.logo);
+        }
 
     }
     init() {
         this.game.renderer.renderSession.roundPixels = true;
         this.keys = this.game.input.keyboard.addKeys({
             down: Phaser.KeyCode.DOWN,
-            up: Phaser.KeyCode.UP
+            up: Phaser.KeyCode.UP,
+            fire: Phaser.KeyCode.CONTROL
         });
     }
     create() {
@@ -53,19 +56,30 @@ export default class GameMenu {
         logo.anchor.set(0.5);
         bg.height = this.game.height;
         bg.width = this.game.width;
-        var style = { font: "65px Arial", fill: "#ffffff", align: "center" };
+        var style = { font: "32px KenVector Future", fill: "#ffffff", align: "center" };
         let offSet = 0;
 
         this._buttons = this.config.buttons.map((button)=>{
             let out = this.game.add.text(this.game.world.centerX, this.game.world.centerY + offSet, button.text, style);
             out.anchor.set(0.5);
-            offSet = offSet + 90;
+            out.stroke = '#26D8D7';
+            out.strokeThickness = 6;
+            offSet = offSet + 70;
             return out
         });
-        this._buttons[0].addColor('#ffff00', 0);
+
     }
     update () {
         handleInput(this);
-
+        blinkTimer++
+        if(blinkTimer >= blinkVelocity){
+            this._buttons[this.selectedButton].visible = !this._buttons[this.selectedButton].visible;
+            blinkTimer = 0;
+        }
+        this._buttons.forEach((button, index)=>{
+            if(index !== this.selectedButton){
+                button.visible = true;
+            }
+        });
     }
 }

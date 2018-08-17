@@ -1,9 +1,6 @@
 export default function()  {
-    this.game.load.image('background', 'assets/img/background.png');
-    //this.game.load.image('hero', 'assets/img/hero_stopped.png');
     this.game.load.json('level:0', 'assets/levels/level00.json');
     this.game.load.json('level:1', 'assets/levels/level01.json');
-    this.game.load.image('ground', 'assets/img/ground.png');
 
     this.game.load.spritesheet('hero', 'assets/img/test/hero-idle.png', 567, 517);
     this.game.load.spritesheet('coin', 'assets/img/test/fullCoins.png', 16, 16);
@@ -20,4 +17,3 @@ export default function()  {
     this.game.load.image('spikes', 'assets/img/test/Tiles/Spike.png');
     this.game.load.image('doorOpen', 'assets/img/test/Objects/DoorOpen.png');
 }
-
