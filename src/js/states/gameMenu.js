@@ -51,12 +51,17 @@ export default class GameMenu {
     }
     create() {
         this.game.stage.backgroundColor = '#000033';
-        var bg = this.game.add.image(0, 0, 'bg');
-        var logo = this.game.add.image(this.game.world.centerX, this.game.world.centerY -300, 'logo');
-        logo.anchor.set(0.5);
-        bg.height = this.game.height;
-        bg.width = this.game.width;
-        var style = { font: "32px KenVector Future", fill: "#ffffff", align: "center" };
+        if(typeof this.config.background === 'string'){
+            let bg = this.game.add.image(0, 0, 'bg');
+            bg.height = this.game.height;
+            bg.width = this.game.width;
+        }
+        if(typeof this.config.logo === 'string'){
+            let logo = this.game.add.image(this.game.world.centerX, this.game.world.centerY -300, 'logo');
+            logo.anchor.set(0.5);
+        }
+
+        let style = { font: "32px KenVector Future", fill: "#ffffff", align: "center" };
         let offSet = 0;
 
         this._buttons = this.config.buttons.map((button)=>{
