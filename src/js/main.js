@@ -1,6 +1,7 @@
 // Phaser is side loaded as global!
 //var preload = require('./states/preload');
-import GameMenu from './states/gameMenu';
+import GameMenu from 'capmaningamemenu';
+//import GameMenu from './states/gameMenu';
 import preload from './states/preload';
 import create from './states/create';
 import init from './states/init';
