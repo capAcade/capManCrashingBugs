@@ -1,20 +1,29 @@
 export default class Hero extends Phaser.Sprite {
     constructor(game, x, y) {
-        super(game, x, y, 'hero');
+        super(game, x, y, 'capMan');
         this.anchor.set(0.5, 0.5);
         this.scale.setTo(0.25, 0.25);
 
-        const cropRect = new Phaser.Rectangle(75, 60, 385, 466);
+        //const cropRect = new Phaser.Rectangle(75, 60, 385, 466);
 
-        this.crop(cropRect);
+        //this.crop(cropRect);
 
         this.game.physics.enable(this);
         this.body.collideWorldBounds = true;
-        this.body.setSize(280,455)
-        this.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8, 9], 9, true);
-        this.animations.add('run', [21, 22, 23, 24, 25, 26, 27, 28], 10, true);
-        this.animations.add('jump', [11, 12, 13, 14, 15]);
-        this.animations.add('fall', [16, 17, 18, 19, 20]);
+
+
+        this.animations.add('idle', [0]);
+        this.animations.add('run', [1, 2], 8, true); // 8fps looped
+        this.animations.add('jump', [3]);
+        this.animations.add('fall', [4]);
+        this.animations.add('die', [5, 6, 5, 6, 5, 6, 5, 6], 8); // 12fps no loop
+
+
+
+        // this.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8, 9], 9, true);
+        // this.animations.add('run', [21, 22, 23, 24, 25, 26, 27, 28], 10, true);
+        // this.animations.add('jump', [11, 12, 13, 14, 15]);
+        // this.animations.add('fall', [16, 17, 18, 19, 20]);
     }
     move(direction) {
         const SPEED = 200;
@@ -56,8 +65,17 @@ export default class Hero extends Phaser.Sprite {
     }
     update() {
         let animationName = this.getAnimationName();
-        if (this.animations.name !== animationName) {
-            this.animations.play(animationName);
+        if (this.animations.name !== animationName && this.alive) {
+           this.animations.play(animationName);
         }
     }
+    die() {
+        this.alive = false;
+        this.body.enable = false;
+    console.log('die is aangeroepen')
+        this.animations.play('die').onComplete.addOnce(function () {
+            console.log('die animatie is klaar kill wordt gestart')
+            this.kill();
+        }, this);
+    };
 };

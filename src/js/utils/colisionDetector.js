@@ -11,7 +11,20 @@ export default function()  {
         null, this);
 
     this._onHeroVsEnemy = function (hero, enemy) {
-        this.game.state.restart(true, false, {level: this.level});
+        console.log('kom ik hier?');
+
+        hero.die();
+        //this.sfx.stomp.play();
+        hero.events.onKilled.addOnce(function () {
+            this.game.state.restart(true, false, {level: this.level});
+        }, this);
+
+        // NOTE: bug in phaser in which it modifies 'touching' when
+        // checking for overlaps. This undoes that change so spiders don't
+        // 'bounce' agains the hero
+        //enemy.body.touching = enemy.body.wasTouching;
+
+        
     };
 
     this._onHeroVsDoor = function (hero, enemy) {
