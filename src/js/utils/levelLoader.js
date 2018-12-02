@@ -7,6 +7,8 @@ export function _loadLevel(data) {
     this.doors = this.game.add.group();
     this.coins = this.game.add.group();
     this.bugs = this.game.add.group();
+    this.hiddenWalls = this.game.add.group();
+    this.hiddenWalls.visible = false;
     data.platforms.forEach(this._spawnPlatform, this);
     data.doors.forEach(this._spawnDoor, this);
     data.traps.forEach(this._spawnTrap, this);
@@ -34,7 +36,29 @@ export function _spawnPlatform (platform) {
     sprite.body.allowGravity = false;
     sprite.body.immovable = true;
 
+    if(platform.image === "groundStart"){
+        this._spawnEnemyWall(platform.x, platform.y-40);
+    }
+
+    if(platform.image === "groundEnd"){
+        this._spawnEnemyWall(platform.x+60, platform.y-40);
+    }
+    
+
 }
+
+export function _spawnEnemyWall (x, y) {
+    let sprite = this.hiddenWalls.create(x, y, 'hiddenWall');
+    // anchor and y displacement
+   // sprite.anchor.set(side === 'left' ? 1 : 0, 1);
+    // physic properties
+    this.game.physics.enable(sprite);
+    sprite.body.immovable = true;
+    sprite.body.allowGravity = false;
+};
+
+
+
 export function _spawnTrap (trap) {
 
     let sprite = this.traps.create(

@@ -5,6 +5,9 @@ export default function()  {
     this.game.load.spritesheet('hero', 'assets/img/test/hero-idle.png', 567, 517);
     this.game.load.spritesheet('capMan', 'assets/img/hero/CapMan-Hero1x.png', 405, 500);
     this.game.load.spritesheet('capManBug1', 'assets/img/hero/CapMan-Bug1x.png', 400, 500);
+
+    this.game.load.image('hiddenWall', 'assets/img/utilities/invisible_wall.png');
+    
     this.game.load.spritesheet('coin', 'assets/img/test/fullCoins.png', 16, 16);
 
     this.game.load.image('icon:coin', 'assets/img/test/coin_icon.png');

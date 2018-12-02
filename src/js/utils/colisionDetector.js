@@ -1,8 +1,12 @@
 export default function()  {
     this.game.physics.arcade.collide(this.hero, this.platforms);
     this.game.physics.arcade.collide(this.bugs, this.platforms);
+    this.game.physics.arcade.collide(this.bugs, this.hiddenWalls);
 
     this.game.physics.arcade.overlap(this.hero, this.traps,
+        this._onHeroVsEnemy, null, this);
+
+    this.game.physics.arcade.overlap(this.hero, this.bugs,
         this._onHeroVsEnemy, null, this);
 
     this.game.physics.arcade.overlap(this.hero, this.doors,
@@ -12,8 +16,6 @@ export default function()  {
         null, this);
 
     this._onHeroVsEnemy = function (hero, enemy) {
-        console.log('kom ik hier?');
-
         hero.die();
         //this.sfx.stomp.play();
         hero.events.onKilled.addOnce(function () {

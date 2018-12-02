@@ -4,11 +4,20 @@ export default class BugOne extends Phaser.Sprite {
         // anchor
         this.anchor.set(0.5);
         this.scale.setTo(0.25, 0.25);
+
+
+        const cropRect = new Phaser.Rectangle(75, 60, 200, 466);
+
+        this.crop(cropRect);
+
         // animation
         this.animations.add('crawl', [0, 1], 8, true);
         this.animations.add('die', [0, 4, 0, 4, 0, 4, 3, 3, 3, 3, 3, 3], 12);
         this.animations.play('crawl');
     
+
+
+
         // physic properties
         this.game.physics.enable(this);
         this.body.collideWorldBounds = true;
