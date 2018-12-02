@@ -17,6 +17,8 @@ export default class Hero extends Phaser.Sprite {
         this.animations.add('jump', [3]);
         this.animations.add('fall', [4]);
         this.animations.add('die', [5, 6, 5, 6, 5, 6, 5, 6], 8); // 12fps no loop
+        this.animations.add('defaultAttack', [7, 8, 8, 8, 7], 8);
+        this.attacking = false;
 
 
 
@@ -46,6 +48,12 @@ export default class Hero extends Phaser.Sprite {
     
         return canJump;
     }
+    defaultAttack() {
+        this.attacking = true;
+        this.animations.play('defaultAttack').onComplete.addOnce(function () {
+            this.attacking = false;
+        }, this);
+    }
     getAnimationName() {
         let name = 'idle'; // default animation
 
@@ -65,16 +73,14 @@ export default class Hero extends Phaser.Sprite {
     }
     update() {
         let animationName = this.getAnimationName();
-        if (this.animations.name !== animationName && this.alive) {
+        if (this.animations.name !== animationName && this.alive && !this.attacking) {
            this.animations.play(animationName);
         }
     }
     die() {
         this.alive = false;
         this.body.enable = false;
-    console.log('die is aangeroepen')
         this.animations.play('die').onComplete.addOnce(function () {
-            console.log('die animatie is klaar kill wordt gestart')
             this.kill();
         }, this);
     };

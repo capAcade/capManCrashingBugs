@@ -43,5 +43,9 @@
     "doors": [
         {"image": "doorOpen", "x": 76, "y": 469}
     ],
+    "bugs": [
+        {"image": "capManBug1", "x": 90, "y": 535},
+        {"image": "capManBug1", "x": 400, "y": 535}
+    ],
     "hero": {"x": 51, "y": 772}
 }

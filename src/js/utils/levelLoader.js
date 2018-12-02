@@ -1,14 +1,18 @@
 import Hero from '../heros/hero';
+import BugOne from '../bugs/bugOne';
 
 export function _loadLevel(data) {
     this.platforms = this.game.add.group();
     this.traps = this.game.add.group();
     this.doors = this.game.add.group();
     this.coins = this.game.add.group();
+    this.bugs = this.game.add.group();
     data.platforms.forEach(this._spawnPlatform, this);
     data.doors.forEach(this._spawnDoor, this);
     data.traps.forEach(this._spawnTrap, this);
     data.coins.forEach(this._spawnCoin, this);
+    data.bugs.forEach(this._spawnBug, this);
+
     this._spawnCharacters({hero: data.hero});
 
     const GRAVITY = 1200;
@@ -31,8 +35,6 @@ export function _spawnPlatform (platform) {
     sprite.body.immovable = true;
 
 }
-
-
 export function _spawnTrap (trap) {
 
     let sprite = this.traps.create(
@@ -46,6 +48,10 @@ export function _spawnTrap (trap) {
     sprite.body.allowGravity = false;
     sprite.body.immovable = true;
 
+}
+export function _spawnBug (bug) {
+    let sprite = new BugOne(this.game, bug.x, bug.y);
+    this.bugs.add(sprite);
 }
 
 export function _spawnCharacters (data) {

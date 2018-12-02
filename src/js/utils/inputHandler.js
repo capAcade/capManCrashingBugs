@@ -2,6 +2,10 @@ export default function()  {
     this.keys.up.onDown.add(function () {
         this.hero.jump();
     }, this);
+
+    this.keys.fire.onDown.add(function () {
+        this.hero.defaultAttack();
+    }, this);
     if (this.keys.left.isDown) { // move hero left
         this.hero.move(-1);
     }
