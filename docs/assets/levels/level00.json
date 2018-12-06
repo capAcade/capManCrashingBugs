@@ -1,47 +1,43 @@
 {
     "platforms": [
-        {"image": "groundStart", "x": 0, "y": 948},
-        {"image": "groundMid", "x": 76, "y": 948},
-        {"image": "groundMid", "x": 152, "y": 948},
-        {"image": "groundMid", "x": 228, "y": 948},
-        {"image": "groundMid", "x": 304, "y": 948},
-        {"image": "groundEnd", "x": 380, "y": 948},
-        {"image": "halfTile", "x": 456, "y": 985},
-        {"image": "halfTile", "x": 532, "y": 985},
-        {"image": "groundStart", "x": 608, "y": 948},
-        {"image": "groundMid", "x": 684, "y": 948},
-        {"image": "groundMid", "x": 760, "y": 948},
-        {"image": "groundMid", "x": 836, "y": 948},
-        {"image": "groundMid", "x": 912, "y": 948},
-        {"image": "groundMid", "x": 988, "y": 948},
-        {"image": "groundMid", "x": 1064, "y": 948},
-        {"image": "groundMid", "x": 1140, "y": 948},
-        {"image": "groundEnd", "x": 1204, "y": 948},
-        {"image": "platformFull", "x": 1004, "y": 848},
-        {"image": "platformFull", "x": 804, "y": 748},
-        {"image": "groundEnd", "x": 704, "y": 608},
-        {"image": "groundStart", "x": 632, "y": 608},
-        {"image": "groundEnd", "x": 408, "y": 608},
-        {"image": "groundStart", "x": 332, "y": 608},
+        {"image": "ground", "x": 0, "y": 939},
+        {"image": "ground", "x": 966, "y": 939},
+        {"image": "ground", "x": 1932, "y": 939},
 
-        {"image": "groundEnd", "x": 152, "y": 608},
-        {"image": "groundMid", "x": 76, "y": 608},
-        {"image": "groundStart", "x": 0, "y": 608},
+        {"image": "grass2x1", "x": 1500, "y": 925},
+        {"image": "grass2x1", "x": 1500, "y": 900},
+        {"image": "grass2x1", "x": 1500, "y": 869},
+        {"image": "grass2x1", "x": 1500, "y": 840},
 
-        
-        {"image": "platformFull", "x": 1128, "y": 788}
+
+        {"image": "grass2x1", "x": 1800, "y": 925},
+        {"image": "grass2x1", "x": 1800, "y": 900},
+        {"image": "grass2x1", "x": 1800, "y": 869},
+        {"image": "grass2x1", "x": 1800, "y": 840},
+
+
+        {"image": "grass1x1", "x": 400, "y": 400},
+        {"image": "grass2x1", "x": 200, "y": 200},
+        {"image": "grass4x1", "x": 500, "y": 200},
+        {"image": "grass8x1", "x": 800, "y": 760, "enemyWall": true}
     ],
     "coins": [
-        {"image": "coin", "x": 630, "y": 450},
-        {"image": "coin", "x": 510, "y": 450},
-        {"image": "coin", "x": 570, "y": 400}
+        {"image": "coin", "x": 1020, "y": 550},
+        {"image": "coin", "x": 900, "y": 550},
+        {"image": "coin", "x": 960, "y": 500},
+        {"image": "coin", "x": 1650, "y": 850},
+        {"image": "coin", "x": 1700, "y": 850},
+        {"image": "coin", "x": 1750, "y": 850}
     ],
     "traps": [
-        {"image": "spikes", "x": 456, "y": 950},
-        {"image": "spikes", "x": 532, "y": 950}
+
     ],
     "doors": [
         {"image": "doorOpen", "x": 76, "y": 469}
+    ],
+    "bugs": [
+        {"image": "capManBug1", "x": 950, "y": 720},
+        {"image": "capManBug1", "x": 1600, "y": 850}
     ],
     "hero": {"x": 51, "y": 772}
 }

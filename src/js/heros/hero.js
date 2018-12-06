@@ -1,10 +1,10 @@
 export default class Hero extends Phaser.Sprite {
     constructor(game, x, y) {
-        super(game, x, y, 'capMan');
+        super(game, x, y, 'capManSheet');
         this.anchor.set(0.5, 0.5);
         this.scale.setTo(0.25, 0.25);
 
-        //const cropRect = new Phaser.Rectangle(75, 60, 385, 466);
+        //const cropRect = new Phaser.Rectangle(1, 60, 500, 404);
 
         //this.crop(cropRect);
 
@@ -12,12 +12,12 @@ export default class Hero extends Phaser.Sprite {
         this.body.collideWorldBounds = true;
 
 
-        this.animations.add('idle', [0]);
-        this.animations.add('run', [1, 2], 8, true); // 8fps looped
-        this.animations.add('jump', [3]);
-        this.animations.add('fall', [4]);
-        this.animations.add('die', [5, 6, 5, 6, 5, 6, 5, 6], 8); // 12fps no loop
-        this.animations.add('defaultAttack', [7, 8, 8, 8, 7], 8);
+        this.animations.add('idle', ['idle']);
+        this.animations.add('run', ['walk-1', 'walk-2'], 8, true); // 8fps looped
+        this.animations.add('jump', ['jump']);
+        this.animations.add('fall', ['land']);
+        this.animations.add('die', ['die-1', 'die-2','die-1', 'die-2','die-1', 'die-2','die-1', 'die-2'], 8); // 12fps no loop
+        this.animations.add('defaultAttack', ['stab-1', 'stab-2', 'stab-2', 'stab-2', 'stab-1'], 8);
         this.attacking = false;
 
 
@@ -39,7 +39,7 @@ export default class Hero extends Phaser.Sprite {
         }
     }
     jump() {
-        const JUMP_SPEED = 600;
+        const JUMP_SPEED = 700;
         let canJump = this.body.touching.down;
     
         if (canJump) {

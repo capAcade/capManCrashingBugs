@@ -1,17 +1,31 @@
 export default function()  {
     this.game.load.json('level:0', 'assets/levels/level00.json');
     this.game.load.json('level:1', 'assets/levels/level01.json');
+        
 
-    this.game.load.spritesheet('hero', 'assets/img/test/hero-idle.png', 567, 517);
-    this.game.load.spritesheet('capMan', 'assets/img/hero/CapMan-Hero1x.png', 405, 500);
-    this.game.load.spritesheet('capManBug1', 'assets/img/hero/CapMan-Bug1x.png', 400, 500);
-
+    //assets for capman
+    this.game.load.atlasJSONHash('capManSheet', 'assets/img/Capman/capMan.png', 'assets/img/Capman/capMan.json');
+    this.game.load.atlasJSONHash('bug', 'assets/img/Bug/bug.png', 'assets/img/Bug/sprites.json');
     this.game.load.image('hiddenWall', 'assets/img/utilities/invisible_wall.png');
+
+    this.game.load.image('ground', 'assets/img/extra/ground.png')
+    this.game.load.image('grass1x1', 'assets/img/extra/grass_1x1.png')
+    this.game.load.image('grass2x1', 'assets/img/extra/grass_2x1.png')
+    this.game.load.image('grass4x1', 'assets/img/extra/grass_4x1.png')
+    this.game.load.image('grass6x1', 'assets/img/extra/grass_6x1.png')
+    this.game.load.image('grass8x1', 'assets/img/extra/grass_8x1.png')
+
+    this.game.load.image('bg', 'assets/img/extra/background.png')
+    this.game.load.image('font:numbers', 'assets/img/extra/numbers.png');
     
+
+
+
+
     this.game.load.spritesheet('coin', 'assets/img/test/fullCoins.png', 16, 16);
 
     this.game.load.image('icon:coin', 'assets/img/test/coin_icon.png');
-    this.game.load.image('font:numbers', 'assets/img/test/numbers.png');
+
     this.game.load.audio('sfx:coin', 'assets/audio/coin.wav');
 
     this.game.load.image('groundStart', 'assets/img/test/Tiles/groundStart.png');

@@ -25,25 +25,22 @@ export function _spawnPlatform (platform) {
 
     let sprite = this.platforms.create(
         platform.x, platform.y, platform.image);
-    sprite.scale.setTo(0.3, 0.3);
+    //sprite.scale.setTo(0.3, 0.3);
 
-    if(platform.image === "platformFull" || platform.image ==="halfTile" ){
-        const cropRect = new Phaser.Rectangle(0, 0, 256, 128);
-        sprite.crop(cropRect);
-    }
+
 
     this.game.physics.enable(sprite);
     sprite.body.allowGravity = false;
     sprite.body.immovable = true;
 
-    if(platform.image === "groundStart"){
+
+    if(platform.enemyWall){
+        //console.log(this.game.cache.getImage(platform.image).width)
         this._spawnEnemyWall(platform.x, platform.y-40);
+        this._spawnEnemyWall(platform.x + this.game.cache.getImage(platform.image).width -15, platform.y-40);
     }
 
-    if(platform.image === "groundEnd"){
-        this._spawnEnemyWall(platform.x+60, platform.y-40);
-    }
-    
+ 
 
 }
 
@@ -124,4 +121,5 @@ export function _createHud () {
     this.hud.position.set(10, 10);
     this.hud.add(coinScoreImg);
     this.hud.add(this.keyIcon);
+    this.hud.fixedToCamera = true;
 };

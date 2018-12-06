@@ -1,18 +1,18 @@
 export default class BugOne extends Phaser.Sprite {
     constructor(game, x, y) {
-        super(game, x, y, 'capManBug1');
+        super(game, x, y, 'bug');
         // anchor
         this.anchor.set(0.5);
-        this.scale.setTo(0.25, 0.25);
+        this.scale.setTo(0.30, 0.30);
 
 
-        const cropRect = new Phaser.Rectangle(75, 60, 200, 466);
+       // const cropRect = new Phaser.Rectangle(75, 60, 200, 466);
 
-        this.crop(cropRect);
+       // this.crop(cropRect);
 
         // animation
-        this.animations.add('crawl', [0, 1], 8, true);
-        this.animations.add('die', [0, 4, 0, 4, 0, 4, 3, 3, 3, 3, 3, 3], 12);
+        this.animations.add('crawl', Phaser.Animation.generateFrameNames('walk-', 1, 2), 8, true);
+        this.animations.add('die', Phaser.Animation.generateFrameNames('die-', 1, 4), 12);
         this.animations.play('crawl');
     
 
@@ -32,6 +32,13 @@ export default class BugOne extends Phaser.Sprite {
         }
         else if (this.body.touching.left || this.body.blocked.left) {
             this.body.velocity.x = this.SPEED; // turn right
+        }
+
+        if (this.body.velocity.x > 0) {
+            this.scale.x = -0.25;
+        }
+        else if (this.body.velocity.x < 0) {
+            this.scale.x = 0.25;
         }
     }
     die () {
