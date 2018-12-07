@@ -17,6 +17,16 @@ export default function()  {
 
     this.game.load.image('bg', 'assets/img/extra/background.png')
     this.game.load.image('font:numbers', 'assets/img/extra/numbers.png');
+
+    this.game.load.audio('sfx:coin', 'assets/audio/coin.wav');
+    this.game.load.audio('sfx:lose', 'assets/audio/hero-lose.wav');
+    this.game.load.audio('sfx:win', 'assets/audio/hero-win.wav');
+    this.game.load.audio('sfx:woosh', 'assets/audio/woosh.mp3');
+    this.game.load.audio('sfx:jump', 'assets/audio/jump.wav');
+    this.game.load.audio('sfx:land', 'assets/audio/land.wav');
+    this.game.load.audio('sfx:door', 'assets/audio/door.wav');
+
+
     
 
 
@@ -26,7 +36,6 @@ export default function()  {
 
     this.game.load.image('icon:coin', 'assets/img/test/coin_icon.png');
 
-    this.game.load.audio('sfx:coin', 'assets/audio/coin.wav');
 
     this.game.load.image('groundStart', 'assets/img/test/Tiles/groundStart.png');
     this.game.load.image('groundMid', 'assets/img/test/Tiles/groundMid.png');

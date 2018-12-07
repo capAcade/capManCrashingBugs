@@ -39,7 +39,12 @@ export default function()  {
     };
 
     this._onHeroVsDoor = function (hero, enemy) {
-        this.game.state.restart(true, false, { level: this.level + 1 });
+        this.game._sfx.win.onStop.addOnce( ()=>{
+            this.game.state.restart(true, false, { level: this.level + 1 });
+        });
+        this.game._sfx.win.play();
+
+        
     };
 
     this._onHeroVsCoin = function (hero, coin) {

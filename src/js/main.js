@@ -30,30 +30,30 @@ PlayState._createHud = _createHud;
 PlayState._spawnBug = _spawnBug;
 PlayState._spawnEnemyWall =_spawnEnemyWall;
 
+// PlayState.render = function(){
+// nice for debugging
+//     PlayState.game.debug.body(PlayState.hero);
+
+// }
+
 window.onload = function () {
     let game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'game');
     let gameMenu = new GameMenu(
         {
             title: 'capman Crashing bugs',
-            background: 'assets/img/test/Intro_Screen_background.png',
-            logo: 'assets/img/test/CapmanLogo1.svg',
+            background: 'assets/img/utilities/Game-Menu.png',
             buttons: [
                 {
                     id: 'onePlayer',
                     text: '- start one player -'
                 },
                 {
-                    id: 'twoPlayers',
-                    text: '- start two player -'
-                },
-                {
-                    id: 'highScores',
-                    text: '- High scores -'
+                    id: 'home',
+                    text: '- Back to Home -'
                 }
             ]
         },
         (button) =>{
-            console.log(button);
             game.state.start('play', true, false, {level: 0}); 
         }
     );

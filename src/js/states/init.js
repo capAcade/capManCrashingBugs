@@ -4,7 +4,7 @@ export default function(data)  {
     this.keys = this.game.input.keyboard.addKeys({
         left: Phaser.KeyCode.LEFT,
         right: Phaser.KeyCode.RIGHT,
-        up: Phaser.KeyCode.UP,
+        up: Phaser.KeyCode.ALT,
         fire: Phaser.KeyCode.CONTROL
     });
     this.level = (data.level || 0) % this.LEVEL_COUNT;
