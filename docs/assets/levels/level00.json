@@ -16,9 +16,6 @@
         {"image": "grass2x1", "x": 1800, "y": 840},
 
 
-        {"image": "grass1x1", "x": 400, "y": 400},
-        {"image": "grass2x1", "x": 200, "y": 200},
-        {"image": "grass4x1", "x": 500, "y": 200},
         {"image": "grass8x1", "x": 800, "y": 760, "enemyWall": true}
     ],
     "coins": [
@@ -33,7 +30,7 @@
 
     ],
     "doors": [
-        {"image": "doorOpen", "x": 76, "y": 469}
+        {"image": "doorOpen", "x": 2500, "y": 800}
     ],
     "bugs": [
         {"image": "capManBug1", "x": 950, "y": 720},
