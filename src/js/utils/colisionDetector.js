@@ -42,7 +42,10 @@ export default function()  {
         this.game._sfx.win.onStop.addOnce( ()=>{
             this.game.state.restart(true, false, { level: this.level + 1 });
         });
-        this.game._sfx.win.play();
+        if(!this.winning) {
+            this.winning = true;
+            this.game._sfx.win.play();
+        }
 
         
     };

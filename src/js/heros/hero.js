@@ -40,10 +40,10 @@ export default class Hero extends Phaser.Sprite {
         }
     }
     jump() {
-        this.game._sfx.jump.play();
         const JUMP_SPEED = 700;
         let canJump = this.body.touching.down;
         if (canJump) {
+            this.game._sfx.jump.play();
             this.body.velocity.y = -JUMP_SPEED;
         }
         return canJump;
