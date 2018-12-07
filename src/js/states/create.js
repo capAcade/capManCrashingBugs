@@ -6,7 +6,8 @@ export default function()  {
         woosh: this.game.add.audio('sfx:woosh'),
         land: this.game.add.audio('sfx:land'),
         door: this.game.add.audio('sfx:door'),
-        jump: this.game.add.audio('sfx:jump')
+        jump: this.game.add.audio('sfx:jump'),
+        splat: this.game.add.audio('sfx:splat')
     };
     this.game._sfx = this.sfx;
     this.game.stage.backgroundColor = '#33ccff';
@@ -14,6 +15,12 @@ export default function()  {
     this.game.world.setBounds(0, 0, 4000, 2000);
 
     //tileSprite = this.game.add.tileSprite(0, 0, 800, 600, 'background');
+
+    this.emitter = this.game.add.emitter(0, 0, 100);
+
+    this.emitter.makeParticles('icon:coin');
+  
+
     
     this.game.physics.startSystem(Phaser.Physics.P2JS);
     this._loadLevel(this.game.cache.getJSON(`level:${this.level}`));

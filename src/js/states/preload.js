@@ -25,6 +25,7 @@ export default function()  {
     this.game.load.audio('sfx:jump', 'assets/audio/jump.wav');
     this.game.load.audio('sfx:land', 'assets/audio/land.wav');
     this.game.load.audio('sfx:door', 'assets/audio/door.wav');
+    this.game.load.audio('sfx:splat', 'assets/audio/splat.wav');
 
 
     

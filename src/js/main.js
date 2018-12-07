@@ -10,6 +10,21 @@ import update from './states/update';
 import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnTrap, _spawnDoor, _spawnCoin, _createHud, _spawnBug, _spawnEnemyWall} from './utils/levelLoader';
 import _colissionDetector from './utils/colisionDetector';
 
+var keys = {};
+function keyHandle(event) {
+  const keyName = event.type;
+  
+  keys[event.key] = event.type === 'keydown';
+  if(keys['1'] && keys['2']){
+  var url = "http://"+window.location.hostname+":"+window.location.port+'/index.html';
+  	window.location = url;
+  }
+};
+
+document.addEventListener('keydown',keyHandle);
+document.addEventListener('keyup',keyHandle);
+
+
 let PlayState = {};
 PlayState.LEVEL_COUNT =2;
 

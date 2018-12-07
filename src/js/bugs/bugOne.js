@@ -43,7 +43,7 @@ export default class BugOne extends Phaser.Sprite {
     }
     die () {
         this.body.enable = false;
-    
+        this.game._sfx.splat.play();
         this.animations.play('die').onComplete.addOnce(function () {
             this.kill();
         }, this)

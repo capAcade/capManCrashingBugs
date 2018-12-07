@@ -44,6 +44,9 @@ export default function()  {
         });
         if(!this.winning) {
             this.winning = true;
+            this.emitter.x = hero.x;
+            this.emitter.y = hero.y - 800;
+            this.emitter.start(true, 4000, null, 30);
             this.game._sfx.win.play();
         }
 
