@@ -18,6 +18,7 @@ export default function()  {
     this.game.physics.arcade.overlap(this.hero, this.door, this._onHeroVsDoor,
         // ignore if there is no key or the player is on air
         function (hero, door) {
+            console.log(this.hasKey && hero.body.touching.down)
             return this.hasKey && hero.body.touching.down;
         }, this);
 
@@ -28,10 +29,7 @@ export default function()  {
         }else{
                     
             hero.die();
-            //this.sfx.stomp.play();
-            hero.events.onKilled.addOnce(function () {
-                this.game.state.restart(true, false, {level: this.level});
-            }, this);
+  
 
         }
 
@@ -46,7 +44,12 @@ export default function()  {
 
     this._onHeroVsDoor = function (hero, enemy) {
         this.game._sfx.win.onStop.addOnce( ()=>{
-            this.game.state.restart(true, false, { level: this.level + 1 });
+            if(this.lastLevel === this.level){
+                this.game.state.start('thanks', true, false, {level: 0});
+            } else {
+                this.game.state.restart(true, false, { level: this.level + 1 });
+            }
+            
         });
         if(!this.winning) {
             this.winning = true;

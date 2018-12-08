@@ -13,7 +13,7 @@ export default function()  {
     this.game._sfx = this.sfx;
     this.game.stage.backgroundColor = '#33ccff';
     this.game.add.sprite(0, 0, 'bg');
-    this.game.world.setBounds(0, 0, 4000, 2000);
+    this.game.world.setBounds(0, 0, 4000, 1024);
     //this.game._sfx.theme.play();
 
     //tileSprite = this.game.add.tileSprite(0, 0, 800, 600, 'background');

@@ -71,11 +71,39 @@ window.onload = function () {
             ]
         },
         (button) =>{
-            game.state.start('play', true, false, {level: 0}); 
+            if(button.id === 'home'){
+                var url = "http://"+window.location.hostname+":"+window.location.port+'/index.html';
+                window.location = url;
+            } else {
+                game.state.start('play', true, false, {level: 0}); 
+            }
+        }
+    );
+
+
+    let thanks = new GameMenu(
+        {
+            title: 'capman Crashing bugs',
+            background: 'assets/img/utilities/Game-Menu.png',
+            buttons: [
+                {
+                    id: 'thanks',
+                    text: '- Thanks for playing -'
+                },
+                {
+                    id: 'home',
+                    text: '- Grtz Sven van Straalen & Martijn Brinks -'
+                }
+            ]
+        },
+        (button) =>{
+            var url = "http://"+window.location.hostname+":"+window.location.port+'/index.html';
+            window.location = url;
         }
     );
 
     game.state.add('gameMenu', gameMenu);
+    game.state.add('thanks', thanks);
     game.state.add('play', PlayState);
     game.state.start('gameMenu', true, false, {level: 0});
 };

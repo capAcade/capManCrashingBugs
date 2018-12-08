@@ -6,5 +6,8 @@ export default function()  {
     this.keyIcon.frame = this.hasKey ? 1 : 0;
     this.door.frame = this.hasKey ? 1 : 0;
     //this.game.camera.x = this.hero.x -40;
+    if(this.hero.body.onFloor() && this.hero.alive){
+        this.hero.die();
+    }
 }
 
