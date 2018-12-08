@@ -7,14 +7,18 @@ export default function()  {
         land: this.game.add.audio('sfx:land'),
         door: this.game.add.audio('sfx:door'),
         jump: this.game.add.audio('sfx:jump'),
-        splat: this.game.add.audio('sfx:splat')
+        splat: this.game.add.audio('sfx:splat'),
+        theme: this.game.add.audio('sfx:theme')
     };
     this.game._sfx = this.sfx;
     this.game.stage.backgroundColor = '#33ccff';
     this.game.add.sprite(0, 0, 'bg');
     this.game.world.setBounds(0, 0, 4000, 2000);
+    //this.game._sfx.theme.play();
 
     //tileSprite = this.game.add.tileSprite(0, 0, 800, 600, 'background');
+
+    //this.game._sfx.theme.volume = 0.5;
 
     this.emitter = this.game.add.emitter(0, 0, 100);
 

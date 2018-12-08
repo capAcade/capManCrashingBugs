@@ -7,7 +7,12 @@ export default function()  {
     this.game.load.atlasJSONHash('capManSheet', 'assets/img/Capman/capMan.png', 'assets/img/Capman/capMan.json');
     this.game.load.atlasJSONHash('bug', 'assets/img/Bug/bug.png', 'assets/img/Bug/sprites.json');
     this.game.load.image('hiddenWall', 'assets/img/utilities/invisible_wall.png');
+    this.game.load.image('key', 'assets/img/extra/key.png')
+    this.game.load.spritesheet('icon:key', 'assets/img/extra/key_icon.png', 34, 30)
+    this.game.load.spritesheet('door', 'assets/img/extra/door.png', 42, 66)
+    this.game.load.spritesheet('decor', 'assets/img/extra/decor.png', 42, 42)
 
+    //platforms
     this.game.load.image('ground', 'assets/img/extra/ground.png')
     this.game.load.image('grass1x1', 'assets/img/extra/grass_1x1.png')
     this.game.load.image('grass2x1', 'assets/img/extra/grass_2x1.png')
@@ -15,9 +20,11 @@ export default function()  {
     this.game.load.image('grass6x1', 'assets/img/extra/grass_6x1.png')
     this.game.load.image('grass8x1', 'assets/img/extra/grass_8x1.png')
 
+    //extra
     this.game.load.image('bg', 'assets/img/extra/background.png')
     this.game.load.image('font:numbers', 'assets/img/extra/numbers.png');
 
+    //all audio 
     this.game.load.audio('sfx:coin', 'assets/audio/coin.wav');
     this.game.load.audio('sfx:lose', 'assets/audio/hero-lose.wav');
     this.game.load.audio('sfx:win', 'assets/audio/hero-win.wav');
@@ -26,6 +33,7 @@ export default function()  {
     this.game.load.audio('sfx:land', 'assets/audio/land.wav');
     this.game.load.audio('sfx:door', 'assets/audio/door.wav');
     this.game.load.audio('sfx:splat', 'assets/audio/splat.wav');
+    this.game.load.audio('sfx:theme', 'assets/audio/themeSong.ogg');
 
 
     

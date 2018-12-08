@@ -9,11 +9,17 @@ export default function()  {
     this.game.physics.arcade.overlap(this.hero, this.bugs,
         this._onHeroVsEnemy, null, this);
 
-    this.game.physics.arcade.overlap(this.hero, this.doors,
-        this._onHeroVsDoor, null, this);
-
     this.game.physics.arcade.overlap(this.hero, this.coins, this._onHeroVsCoin,
         null, this);
+
+    this.game.physics.arcade.overlap(this.hero, this.key, this._onHeroVsKey,
+        null, this);
+
+    this.game.physics.arcade.overlap(this.hero, this.door, this._onHeroVsDoor,
+        // ignore if there is no key or the player is on air
+        function (hero, door) {
+            return this.hasKey && hero.body.touching.down;
+        }, this);
 
     this._onHeroVsEnemy = function (hero, enemy) {
         
@@ -49,13 +55,17 @@ export default function()  {
             this.emitter.start(true, 4000, null, 30);
             this.game._sfx.win.play();
         }
-
-        
     };
 
     this._onHeroVsCoin = function (hero, coin) {
         this.sfx.coin.play();
         this.scorep1++;
         coin.kill();
+    };
+
+    this._onHeroVsKey = function (hero, key) {
+        this.sfx.door.play();
+        key.kill();
+        this.hasKey = true;
     };
 }
