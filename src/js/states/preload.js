@@ -1,6 +1,7 @@
 export default function()  {
     this.game.load.json('level:0', 'assets/levels/level00.json');
     this.game.load.json('level:1', 'assets/levels/level01.json');
+    this.game.load.json('level:2', 'assets/levels/level02.json');
         
 
     //assets for capman

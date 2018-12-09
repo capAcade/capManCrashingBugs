@@ -40,6 +40,16 @@ export function _spawnPlatform (platform) {
         this._spawnEnemyWall(platform.x, platform.y-40);
         this._spawnEnemyWall(platform.x + this.game.cache.getImage(platform.image).width -15, platform.y-40);
     }
+
+    if(platform.move){
+        this.game.add.tween(sprite)
+        .to({y: 200}, 1500, Phaser.Easing.Sinusoidal.InOut)
+        .yoyo(true)
+        .loop()
+        .start();
+    }
+
+
 }
 
 
