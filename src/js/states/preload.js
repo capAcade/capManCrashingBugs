@@ -10,6 +10,7 @@ export default function()  {
     this.game.load.image('key', 'assets/img/extra/key.png')
     this.game.load.spritesheet('icon:key', 'assets/img/extra/key_icon.png', 34, 30)
     this.game.load.spritesheet('door', 'assets/img/extra/door.png', 42, 66)
+    this.game.load.spritesheet('door-var', 'assets/img/extra/door-var.png', 42, 66)
     this.game.load.spritesheet('decor', 'assets/img/extra/decor.png', 42, 42)
 
     //platforms
@@ -22,9 +23,12 @@ export default function()  {
 
     //extra
     this.game.load.image('bg', 'assets/img/extra/background.png')
+    this.game.load.image('bg-hint', 'assets/img/extra/bg-with-hint.png')
+    this.game.load.image('bg-gray', 'assets/img/extra/bg-gray.png')
     this.game.load.image('font:numbers', 'assets/img/extra/numbers.png');
 
     //all audio 
+    //SFX
     this.game.load.audio('sfx:coin', 'assets/audio/coin.wav');
     this.game.load.audio('sfx:lose', 'assets/audio/hero-lose.wav');
     this.game.load.audio('sfx:win', 'assets/audio/hero-win.wav');
@@ -33,7 +37,13 @@ export default function()  {
     this.game.load.audio('sfx:land', 'assets/audio/land.wav');
     this.game.load.audio('sfx:door', 'assets/audio/door.wav');
     this.game.load.audio('sfx:splat', 'assets/audio/splat.wav');
+
+
+    //Songs
     this.game.load.audio('sfx:theme', 'assets/audio/themeSong.ogg');
+    this.game.load.audio('sfx:themeIntro', 'assets/audio/themeintro.wav');
+    this.game.load.audio('sequence', 'assets/audio/Sequence.wav');
+    this.game.load.audio('rivalry', 'assets/audio/Rivalry.wav');
 
 
     
@@ -45,12 +55,4 @@ export default function()  {
 
     this.game.load.image('icon:coin', 'assets/img/test/coin_icon.png');
 
-
-    this.game.load.image('groundStart', 'assets/img/test/Tiles/groundStart.png');
-    this.game.load.image('groundMid', 'assets/img/test/Tiles/groundMid.png');
-    this.game.load.image('groundEnd', 'assets/img/test/Tiles/groundEnd.png');
-    this.game.load.image('platformFull', 'assets/img/test/Tiles/platformFull.png');
-    this.game.load.image('halfTile', 'assets/img/test/Tiles/halfTile.png');
-    this.game.load.image('spikes', 'assets/img/test/Tiles/Spike.png');
-    this.game.load.image('doorOpen', 'assets/img/test/Objects/DoorOpen.png');
 }

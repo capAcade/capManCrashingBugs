@@ -86,6 +86,7 @@ export default class Hero extends Phaser.Sprite {
         this.game._sfx.lose.onStop.addOnce( ()=>{
             this.kill();
         });
+        this.game._sfx[this.game._levelConfig.music].stop();
         this.game._sfx.lose.play();
         this.animations.play('die').onComplete.addOnce(function () {
 

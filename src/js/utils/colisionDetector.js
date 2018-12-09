@@ -32,19 +32,13 @@ export default function()  {
   
 
         }
-
-
-        // NOTE: bug in phaser in which it modifies 'touching' when
-        // checking for overlaps. This undoes that change so spiders don't
-        // 'bounce' agains the hero
-        //enemy.body.touching = enemy.body.wasTouching;
-
         
     };
 
     this._onHeroVsDoor = function (hero, enemy) {
         this.game._sfx.win.onStop.addOnce( ()=>{
             if(this.lastLevel === this.level){
+                this.game._sfx.themeIntro.play();
                 this.game.state.start('thanks', true, false, {level: 0});
             } else {
                 this.game.state.restart(true, false, { level: this.level + 1 });
@@ -52,6 +46,7 @@ export default function()  {
             
         });
         if(!this.winning) {
+            this.game._sfx[this.game._levelConfig.music].stop();
             this.winning = true;
             this.emitter.x = hero.x;
             this.emitter.y = hero.y - 800;

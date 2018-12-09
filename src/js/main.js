@@ -84,15 +84,11 @@ window.onload = function () {
     let thanks = new GameMenu(
         {
             title: 'capman Crashing bugs',
-            background: 'assets/img/utilities/Game-Menu.png',
+            background: 'assets/img/utilities/thanksScreen.png',
             buttons: [
                 {
                     id: 'thanks',
-                    text: '- Thanks for playing -'
-                },
-                {
-                    id: 'home',
-                    text: '- Grtz Sven van Straalen & Martijn Brinks -'
+                    text: ' '
                 }
             ]
         },

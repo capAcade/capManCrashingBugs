@@ -1,4 +1,6 @@
 {
+    "bg": "bg-hint",
+    "music": "sequence",
     "platforms": [
         {"image": "ground", "x": 0, "y": 939, "decor": 3},
         {"image": "ground", "x": 966, "y": 939, "decor": 4},
@@ -60,7 +62,7 @@
     ],
     "key":{"x": 2420, "y":300},
     "doors": [
-        {"image": "doorOpen", "x": 3864, "y": 940}
+        {"image": "door-var", "x": 3864, "y": 940}
     ],
     "bugs": [
         {"image": "capManBug1", "x": 950, "y": 720},

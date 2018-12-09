@@ -137,7 +137,7 @@ export function _createHud () {
 };
 
 export function _spawnDoor (doory) {
-    this.door = this.bgDecoration.create(doory.x, doory.y, 'door');
+    this.door = this.bgDecoration.create(doory.x, doory.y, doory.image);
     this.door.anchor.setTo(0.5, 1);
     this.door.scale.setTo(2.3, 2.3);
     this.game.physics.enable(this.door);

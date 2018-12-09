@@ -1,4 +1,6 @@
 {
+    "bg": "bg-gray",
+    "music": "rivalry",
     "platforms": [
         {"image": "ground", "x": 0, "y": 939, "decor": 3},
         {"image": "ground", "x": 1366, "y": 939, "decor": 4, "enemyWall": true},
@@ -52,7 +54,7 @@
     ],
     "key":{"x": 2500, "y":500},
     "doors": [
-        {"image": "doorOpen", "x": 3864, "y": 940}
+        {"image": "door-var", "x": 3864, "y": 940}
     ],
     "bugs": [
         {"image": "capManBug1", "x": 950, "y": 720},

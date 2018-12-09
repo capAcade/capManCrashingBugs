@@ -17,8 +17,9 @@ module.exports = {
     new CopyWebpackPlugin([
         {from: './src/html/**/*', to:'', flatten: true},
         {from: './vendor/**/*', to:'', flatten: true},
-        {from: './assets/img/**/*', to: ''},
-        {from: './assets/levels/**/*', to: ''}
+       // {from: './assets/img/**/*', to: ''},
+        {from: './assets/**/*', to: ''},
+        //{from: './assets/levels/**/*', to: ''}
     ])
   ]
 };
