@@ -68,11 +68,13 @@ export function _spawnDeco (platform) {
 
 export function _spawnEnemyWall (x, y) {
     let sprite = this.hiddenWalls.create(x, y, 'hiddenWall');
+    sprite.scale.y = 0.01;
     // anchor and y displacement
    // sprite.anchor.set(side === 'left' ? 1 : 0, 1);
     // physic properties
     this.game.physics.enable(sprite);
     sprite.body.immovable = true;
+    sprite.body.moves = false;
     sprite.body.allowGravity = false;
 };
 
