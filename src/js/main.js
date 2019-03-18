@@ -48,7 +48,7 @@ PlayState._spawnKey = _spawnKey;
 PlayState._spawnDeco = _spawnDeco;
 
 // PlayState.render = function(){
-// nice for debugging
+// // nice for debugging
 //     PlayState.game.debug.body(PlayState.hero);
 
 // }

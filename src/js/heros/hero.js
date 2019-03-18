@@ -45,7 +45,8 @@ export default class Hero extends Phaser.Sprite {
         if(this.alive && !this.attacking){
             this.game._sfx.woosh.play();
             this.attacking = true;
-            this.body.setSize(911, 490, 0, 0);
+            this.body.setSize(631, 490, 280, 0);
+            console.log(this.animations.play('defaultAttack'));
             this.animations.play('defaultAttack').onComplete.addOnce(function () {
                 this.attacking = false;
                 this.body.setSize(331, 490, 0, 0);
