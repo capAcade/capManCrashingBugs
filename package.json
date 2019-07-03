@@ -30,6 +30,6 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
-    "capmaningamemenu": "0.0.2"
+    "capmaningamemenu": "0.0.3"
   }
 }
