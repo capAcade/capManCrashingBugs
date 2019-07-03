@@ -29,10 +29,10 @@ export default function(data)  {
 
 
     this.keys = this.game.input.keyboard.addKeys({
-        left: Phaser.KeyCode.LEFT,
-        right: Phaser.KeyCode.RIGHT,
-        up: Phaser.KeyCode.ALT,
-        fire: Phaser.KeyCode.CONTROL
+        left: Phaser.KeyCode.A,
+        right: Phaser.KeyCode.D,
+        up: Phaser.KeyCode.J,
+        fire: Phaser.KeyCode.U
     });
     this.lastLevel = 1;
     this.level = (data.level || 0) % this.LEVEL_COUNT;
