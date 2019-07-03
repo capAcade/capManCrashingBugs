@@ -54,7 +54,7 @@ PlayState._spawnDeco = _spawnDeco;
 // }
 
 window.onload = function () {
-    let game = new Phaser.Game(1280, 1024, Phaser.AUTO, 'game');
+    let game = new Phaser.Game(screen.width, screen.height, Phaser.AUTO, 'game');
     let gameMenu = new GameMenu(
         {
             title: 'capman Crashing bugs',
