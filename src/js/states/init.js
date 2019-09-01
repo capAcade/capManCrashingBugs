@@ -4,35 +4,45 @@ export default function(data)  {
     this.hasKey = false;
     this.winning = false;
 
-
-
-
-        var inputOne = {
-            "down": this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN).isDown,
-            "white": this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown,
-            "blue1": this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT).isDown,
-            "blue2": this.game.input.keyboard.addKey(Phaser.Keyboard.P).isDown,
-            "blue3": this.game.input.keyboard.addKey(Phaser.Keyboard.Z).isDown,
-        };
-        var inputTwo = {
-            "up": this.game.input.keyboard.addKey(Phaser.Keyboard.R).isDown,
-            "down": this.game.input.keyboard.addKey(Phaser.Keyboard.F).isDown,
-            "white": this.game.input.keyboard.addKey(Phaser.Keyboard.Q).isDown,
-            "black": this.game.input.keyboard.addKey(Phaser.Keyboard.S).isDown,
-            "blue1": this.game.input.keyboard.addKey(Phaser.Keyboard.W).isDown,
-            "blue2": this.game.input.keyboard.addKey(Phaser.Keyboard.K).isDown,
-            "blue3": this.game.input.keyboard.addKey(Phaser.Keyboard.I).isDown
-        };
-
-
-
-
+    var keys = JSON.parse(localStorage.getItem("capManKeys"));
+    if(keys === null) {
+        keys = {
+            playerOne: {
+                up: '',
+                down: '',
+                left: Phaser.KeyCode.A,
+                right: Phaser.KeyCode.D,
+                green: Phaser.KeyCode.J,
+                black: Phaser.KeyCode.U,
+                white: '',
+                blueBelowWhite: '',
+                topRightBlue: '',
+                buttomRightBlue: ''
+            },
+            playerTwo: {
+                up: '',
+                down: '',
+                left: '',
+                right: '',
+                green: '',
+                black: '',
+                white: '',
+                blueBelowWhite: '',
+                topRightBlue: '',
+                buttomRightBlue: ''
+            },
+            pinBallLeft: '',
+            pinBallRight: '',
+            OnePlayerSelection: '',
+            TwoPlayerSelection: ''
+        }
+    }
 
     this.keys = this.game.input.keyboard.addKeys({
-        left: Phaser.KeyCode.A,
-        right: Phaser.KeyCode.D,
-        up: Phaser.KeyCode.J,
-        fire: Phaser.KeyCode.U
+        left: keys.playerOne.left,
+        right: keys.playerOne.right,
+        up: keys.playerOne.green,
+        fire: keys.playerOne.black
     });
     this.lastLevel = 1;
     this.level = (data.level || 0) % this.LEVEL_COUNT;
