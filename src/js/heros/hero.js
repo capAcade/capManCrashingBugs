@@ -57,12 +57,12 @@ export default class Hero extends Phaser.Sprite {
         let name = 'idle'; // default animation
 
         // jumping
-        if (this.body.velocity.y < 0) {
+        if (this.body.velocity.y < 0 && !this.locked) {
             //this.jumped = true;
             name = 'jump';
         }
         // falling
-        else if (this.body.velocity.y >= 0 && !this.body.touching.down) {
+        else if (this.body.velocity.y >= 0 && !this.body.touching.down && !this.locked) {
             this.jumped = true;
             name = 'fall';
         }

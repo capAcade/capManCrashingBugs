@@ -2,6 +2,7 @@ export default function()  {
     this.game.physics.arcade.collide(this.hero, this.platforms);
     this.game.physics.arcade.collide(this.bugs, this.platforms);
     this.game.physics.arcade.collide(this.bugs, this.hiddenWalls);
+    this.game.physics.arcade.collide(this.hero, this.movingPlatforms, this._heroOnMovingPlatform, null, this.game);
 
     this.game.physics.arcade.overlap(this.hero, this.traps,
         this._onHeroVsEnemy, null, this);
@@ -34,6 +35,23 @@ export default function()  {
         }
         
     };
+
+    this._heroOnMovingPlatform = function (hero, platform) {
+        console.log('hij coidewel')
+        if (!this.locked && hero.body.velocity.y > 0)
+        {
+            
+
+            hero.locked = true;
+            hero.lockedTo = platform;
+            platform.playerLocked = true;
+    
+            hero.body.velocity.y = 0;
+        } else {
+            console.log('niet locked')
+        }
+    
+    },
 
     this._onHeroVsDoor = function (hero, enemy) {
         this.game._sfx.win.onStop.addOnce( ()=>{

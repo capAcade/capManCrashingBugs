@@ -4,10 +4,11 @@ import GameMenu from 'capmaningamemenu';
 //import GameMenu from './states/gameMenu';
 import preload from './states/preload';
 import create from './states/create';
+import prerender from './states/prerender';
 import init from './states/init';
 import handleInput from './utils/inputHandler';
 import update from './states/update';
-import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnDeco, _spawnTrap, _spawnDoor, _spawnCoin, _createHud, _spawnBug, _spawnEnemyWall, _spawnKey} from './utils/levelLoader';
+import {_loadLevel, _spawnPlatform, _spawnCharacters, _spawnDeco, _spawnTrap, _spawnDoor, _spawnCoin, _createHud, _spawnBug, _spawnEnemyWall, _spawnKey, _spawnMovingPlatform} from './utils/levelLoader';
 import _colissionDetector from './utils/colisionDetector';
 
 var keys = {};
@@ -30,6 +31,7 @@ PlayState.LEVEL_COUNT =2;
 
 //#TODO i have to clean this up
 PlayState.preload = preload;
+PlayState.preRender = prerender;
 PlayState.init = init;
 PlayState.create = create;
 PlayState.update = update;
@@ -46,6 +48,7 @@ PlayState._spawnBug = _spawnBug;
 PlayState._spawnEnemyWall =_spawnEnemyWall;
 PlayState._spawnKey = _spawnKey;
 PlayState._spawnDeco = _spawnDeco;
+PlayState._spawnMovingPlatform = _spawnMovingPlatform;
 
 // PlayState.render = function(){
 // // nice for debugging

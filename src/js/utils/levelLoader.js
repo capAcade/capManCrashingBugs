@@ -3,6 +3,7 @@ import BugOne from '../bugs/bugOne';
 
 export function _loadLevel(data) {
     this.platforms = this.game.add.group();
+    this.movingPlatforms = this.game.add.group();
     this.traps = this.game.add.group();
     this.coins = this.game.add.group();
     this.bugs = this.game.add.group();
@@ -11,6 +12,10 @@ export function _loadLevel(data) {
     //this.hiddenWalls.visible = false;
     data.platforms.forEach(this._spawnDeco, this);
     data.platforms.forEach(this._spawnPlatform, this);
+    if(data.movingPlatforms){
+        data.movingPlatforms.forEach(this._spawnMovingPlatform, this);
+    }
+    
     data.bugs.forEach(this._spawnBug, this);
     data.doors.forEach(this._spawnDoor, this);
     data.traps.forEach(this._spawnTrap, this);
@@ -40,6 +45,23 @@ export function _spawnPlatform (platform) {
         this._spawnEnemyWall(platform.x, platform.y-40);
         this._spawnEnemyWall(platform.x + this.game.cache.getImage(platform.image).width -15, platform.y-40);
     }
+}
+
+
+export function _spawnMovingPlatform (platform) {
+    let sprite = this.movingPlatforms.create(
+        platform.x, platform.y, platform.image);
+    //sprite.scale.setTo(0.3, 0.3);
+
+    this.game.physics.enable(sprite);
+    sprite.body.allowGravity = false;
+    sprite.body.immovable = true;
+
+    if(platform.enemyWall){
+        //console.log(this.game.cache.getImage(platform.image).width)
+        this._spawnEnemyWall(platform.x, platform.y-40);
+        this._spawnEnemyWall(platform.x + this.game.cache.getImage(platform.image).width -15, platform.y-40);
+    }
 
     if(platform.move){
         this.game.add.tween(sprite)
@@ -48,8 +70,6 @@ export function _spawnPlatform (platform) {
         .loop()
         .start();
     }
-
-
 }
 
 
