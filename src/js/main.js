@@ -54,7 +54,7 @@ PlayState._spawnDeco = _spawnDeco;
 // }
 
 window.onload = function () {
-    let game = new Phaser.Game(400, 300, Phaser.AUTO, 'game');
+    let game = new Phaser.Game(1280, 720, Phaser.AUTO, 'game');
     let gameMenu = new GameMenu(
         {
             title: 'capman Crashing bugs',
@@ -88,7 +88,7 @@ window.onload = function () {
             buttons: [
                 {
                     id: 'thanks',
-                    text: ' '
+                    text: 'The number you are looking for is 6'
                 }
             ]
         },
