@@ -44,6 +44,6 @@ export default function(data)  {
         up: keys.playerOne.green,
         fire: keys.playerOne.black
     });
-    this.lastLevel = 1;
+    this.lastLevel = 0;
     this.level = (data.level || 0) % this.LEVEL_COUNT;
 }

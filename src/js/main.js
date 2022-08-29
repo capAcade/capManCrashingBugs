@@ -54,15 +54,15 @@ PlayState._spawnDeco = _spawnDeco;
 // }
 
 window.onload = function () {
-    let game = new Phaser.Game(1280, 720, Phaser.AUTO, 'game');
+    let game = new Phaser.Game(1100, 565, Phaser.AUTO, 'game');
     let gameMenu = new GameMenu(
         {
-            title: 'capman Crashing bugs',
+            title: 'capman Crashing bugs thanks for playing',
             background: 'assets/img/utilities/Game-Menu.png',
             buttons: [
                 {
                     id: 'onePlayer',
-                    text: '- start one player -'
+                    text: '- Press "J" to Start -'
                 },
                 {
                     id: 'home',
@@ -84,11 +84,11 @@ window.onload = function () {
     let thanks = new GameMenu(
         {
             title: 'capman Crashing bugs',
-            background: 'assets/img/utilities/thanksScreen.png',
+            background: 'assets/img/utilities/thanksScreenHint.png',
             buttons: [
                 {
                     id: 'thanks',
-                    text: 'The number you are looking for is 6'
+                    text: 'The code you are looking for: Q = 7'
                 }
             ]
         },
